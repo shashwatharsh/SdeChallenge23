@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<int> findMissingRepeatingNumbers(vector<int> a) {
+pair<int,int> findMissingRepeatingNumbers(vector<int> a) {
     int n = a.size(); // size of the array
     int repeating = -1, missing = -1;
 
@@ -20,6 +20,20 @@ vector<int> findMissingRepeatingNumbers(vector<int> a) {
             break;
     }
     return {repeating, missing};
+}
+
+pair<int,int> rep_miss(vector<int> a){           //Time complexity = O(nlogN)+O(N)
+    int n = a.size();
+    
+    int sum = a[n-1],rep = 0;
+    for(int i = 0;i<n-1;i++){
+        sum += a[i];
+        if(a[i] == a[i+1]){
+            rep = a[i];
+        }
+    }
+    return {(n(n+1)/2)+rep-sum,rep}
+
 }
 
 int main()
