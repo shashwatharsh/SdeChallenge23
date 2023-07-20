@@ -4,6 +4,7 @@
 // bits/stdc++. h
 
 using namespace std;
+
 void MarkRow(vector<vector<int>> &mat,int r){
     for(int j =0; j< mat[0].size(); j++){
         if(mat[r][j] != 0){
@@ -20,9 +21,13 @@ void MarkCol(vector<vector<int>> &mat,int c){
     }
 }
 
-void SetMatrixToZero(vector<vector<int>> &mat, int n){
-    for(int i =0;i<n;i++){
-        for(int j = 0;j<mat.size();j++){
+void setZeros(vector<vector<int>> &mat)
+{
+	// Write your code here.
+
+	 int n = mat.size();
+	 for(int i =0;i<n;i++){
+        for(int j = 0;j<mat[0].size();j++){
             if(mat[i][j] == 0){
                 // cout<<i<<j<<endl;
                 MarkRow(mat,i);
@@ -30,12 +35,12 @@ void SetMatrixToZero(vector<vector<int>> &mat, int n){
             }
         }
     }
-    
+
     for(int i =0;i<n;i++){
-        for(int j = 0;j<mat.size();j++){
+        for(int j = 0;j<mat[0].size();j++){
             if(mat[i][j] == -1){
                 mat[i][j] = 0;
-            }
+            }   
         }
     }
 }
